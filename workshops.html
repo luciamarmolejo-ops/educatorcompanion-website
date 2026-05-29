@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PD Workshops · Educator Companion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1A2E5A;
+    --navy-soft:rgba(26,46,90,0.72);
+    --navy-faint:rgba(26,46,90,0.40);
+    --gold:#C8A951;
+    --gold-deep:#A8862F;
+    --paper:#FBF7EE;
+    --paper-2:#F4ECDD;
+    --paper-rule:rgba(26,46,90,0.12);
+    --serif:'Lora',Georgia,serif;
+    --sans:'Poppins',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper);color:var(--navy);font-family:var(--sans);font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:0.5;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");}
+  .wrap{position:relative;z-index:2;}
+
+  .runhead{display:flex;justify-content:space-between;align-items:center;padding:28px clamp(24px,6vw,90px);font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--navy-soft);}
+  .runhead .mark{color:var(--navy);}
+  .runhead .home{color:var(--navy-soft);text-decoration:none;display:inline-flex;align-items:center;gap:9px;transition:color .25s;}
+  .runhead .home:hover{color:var(--gold-deep);}
+  .runhead .home .sparkle{color:var(--gold);}
+
+  .hero{min-height:84vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px clamp(24px,6vw,90px) 70px;}
+  .overline{font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:0.42em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:30px;}
+  .headline{font-family:var(--serif);font-weight:500;font-size:clamp(2.3rem,6vw,4.6rem);line-height:1.05;letter-spacing:-0.01em;color:var(--navy);max-width:15ch;}
+  .subhead{font-family:var(--serif);font-weight:400;font-style:italic;font-size:clamp(1.2rem,2.2vw,1.7rem);line-height:1.3;color:var(--navy-soft);max-width:24ch;margin-top:22px;}
+  .subhead .em{color:var(--gold-deep);font-style:normal;}
+  .lead{font-family:var(--serif);font-weight:400;font-size:clamp(1.05rem,1.6vw,1.3rem);line-height:1.6;color:var(--navy-soft);max-width:48ch;margin-top:30px;}
+  .dots{font-family:var(--serif);color:var(--gold);letter-spacing:0.6em;font-size:1rem;margin:38px 0 28px;padding-left:0.6em;}
+  .tagline{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(1.3rem,2.6vw,1.9rem);line-height:1.3;color:var(--navy);max-width:22ch;}
+  .ledby{font-family:var(--sans);font-size:12px;font-weight:400;letter-spacing:0.06em;color:var(--navy-faint);margin-top:34px;}
+  .ledby a{color:var(--navy-soft);text-decoration:none;border-bottom:1px solid rgba(200,169,81,0.5);transition:color .25s;}
+  .ledby a:hover{color:var(--gold-deep);}
+
+  .section{padding:clamp(60px,8.5vw,104px) clamp(24px,6vw,90px);}
+  .section.panel{background:var(--paper-2);border-top:1px solid var(--paper-rule);border-bottom:1px solid var(--paper-rule);}
+  .inner{max-width:760px;margin:0 auto;}
+  .eyebrow{font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:16px;}
+  .h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.7rem,3.4vw,2.5rem);line-height:1.18;color:var(--navy);margin-bottom:28px;max-width:20ch;}
+  .prose p{font-family:var(--serif);font-weight:400;font-size:clamp(1.08rem,1.5vw,1.24rem);line-height:1.78;color:var(--navy);margin-bottom:1.4rem;max-width:62ch;}
+  .prose p:last-child{margin-bottom:0;}
+  .prose a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(200,169,81,0.55);transition:border-color .25s,color .25s;}
+  .prose a:hover{color:var(--gold-deep);border-bottom-color:var(--gold-deep);}
+  .it{font-style:italic;}
+
+  .pull{text-align:center;margin:48px auto 0;max-width:24ch;}
+  .pull .rule{color:var(--gold);letter-spacing:0.6em;padding-left:0.6em;font-family:var(--serif);font-size:1rem;}
+  .pull blockquote{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(1.3rem,2.6vw,1.85rem);line-height:1.34;color:var(--navy);margin-top:22px;}
+  .pull blockquote .em{color:var(--gold-deep);}
+
+  .intro-line{font-family:var(--serif);font-weight:400;font-size:clamp(1.05rem,1.5vw,1.2rem);line-height:1.7;color:var(--navy-soft);max-width:58ch;margin-bottom:14px;}
+
+  .session{padding:32px 0;border-top:1px solid var(--paper-rule);}
+  .session:first-of-type{border-top:none;padding-top:8px;}
+  .s-num{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:10px;}
+  .s-title{font-family:var(--serif);font-weight:500;font-size:clamp(1.4rem,2.9vw,2.05rem);line-height:1.14;color:var(--navy);margin-bottom:14px;}
+  .s-obj{font-family:var(--serif);font-size:clamp(1.04rem,1.4vw,1.18rem);line-height:1.66;color:var(--navy);max-width:60ch;margin-bottom:16px;}
+  .s-leave{font-family:var(--sans);font-size:0.92rem;font-weight:300;line-height:1.6;color:var(--navy-soft);max-width:60ch;}
+  .s-leave b{font-weight:600;color:var(--gold-deep);letter-spacing:0.08em;text-transform:uppercase;font-size:0.72rem;margin-right:8px;}
+
+  .special{margin-top:44px;background:var(--paper);border:1px solid var(--gold);border-radius:3px;padding:clamp(28px,4vw,40px);}
+  .special .s-num{color:var(--gold-deep);}
+  .special .badge{font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--navy-faint);margin-bottom:14px;}
+
+  .track{padding:26px 0;border-top:1px solid var(--paper-rule);}
+  .track:first-of-type{border-top:none;padding-top:6px;}
+  .track-label{font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:10px;}
+  .track p{font-family:var(--serif);font-weight:400;font-size:clamp(1.04rem,1.4vw,1.18rem);line-height:1.66;color:var(--navy);max-width:62ch;margin:0;}
+
+  .package{padding:22px 0;border-top:1px solid var(--paper-rule);}
+  .package:first-of-type{border-top:none;padding-top:6px;}
+  .pkg-name{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(1.15rem,1.9vw,1.4rem);color:var(--navy);margin-bottom:6px;}
+  .pkg-desc{font-family:var(--sans);font-size:0.96rem;font-weight:300;color:var(--navy-soft);line-height:1.6;max-width:60ch;}
+  .pkg-note{font-family:var(--sans);font-size:0.86rem;font-weight:400;letter-spacing:0.04em;color:var(--navy-faint);margin-top:30px;font-style:normal;}
+
+  .cta{text-align:center;padding:clamp(70px,10vw,120px) clamp(24px,6vw,90px);}
+  .cta .eyebrow{margin-bottom:18px;}
+  .cta h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.9rem,3.8vw,2.8rem);line-height:1.15;color:var(--navy);margin:0 auto 26px;max-width:18ch;}
+  .cta p{font-family:var(--serif);font-weight:400;font-size:clamp(1.08rem,1.5vw,1.22rem);line-height:1.7;color:var(--navy-soft);max-width:54ch;margin:0 auto 22px;}
+  .cta p a{color:var(--navy);text-decoration:none;border-bottom:1px solid rgba(200,169,81,0.5);}
+  .cta p:last-of-type{margin-bottom:40px;}
+  .btn{display:inline-block;background:var(--navy);color:var(--paper);font-family:var(--sans);font-weight:500;letter-spacing:0.1em;text-transform:uppercase;font-size:0.78rem;padding:17px 38px;border-radius:2px;text-decoration:none;transition:background .25s,transform .25s;}
+  .btn:hover{background:var(--gold-deep);transform:translateY(-1px);}
+
+  .footer{text-align:center;padding:54px 24px 60px;border-top:1px solid var(--paper-rule);}
+  .footer-nav{font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;margin-bottom:22px;display:flex;gap:26px;justify-content:center;flex-wrap:wrap;}
+  .footer-nav a{color:var(--navy-soft);text-decoration:none;transition:color .25s;}
+  .footer-nav a:hover{color:var(--gold-deep);}
+  .credit{font-family:var(--sans);font-size:11px;font-weight:400;letter-spacing:0.16em;text-transform:uppercase;color:var(--navy-faint);}
+  .credit .sp{color:var(--gold);}
+
+  .reveal{opacity:0;transform:translateY(16px);animation:rise 1.1s cubic-bezier(.2,.7,.2,1) forwards;}
+  @keyframes rise{to{opacity:1;transform:translateY(0);}}
+  .d1{animation-delay:.10s}.d2{animation-delay:.30s}.d3{animation-delay:.52s}.d4{animation-delay:.74s}.d5{animation-delay:.96s}.d6{animation-delay:1.16s}
+  .scroll-reveal{opacity:0;transform:translateY(20px);transition:opacity .9s ease,transform .9s ease;}
+  .scroll-reveal.in{opacity:1;transform:none;}
+  @media (prefers-reduced-motion:reduce){.reveal{animation:none;opacity:1;transform:none;}.scroll-reveal{opacity:1;transform:none;transition:none;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="runhead">
+    <span class="mark reveal d1">PD Workshops</span>
+    <a class="home reveal d1" href="https://educatorcompanion.com">Educator Companion <span class="sparkle">&#10022;</span></a>
+  </header>
+
+  <section class="hero">
+    <div class="overline reveal d1">Professional Development for Schools</div>
+    <h1 class="headline reveal d2">Give your teachers their hours back.</h1>
+    <p class="subhead reveal d3">So they can focus on what matters most: <span class="em">being present for your students</span>.</p>
+    <p class="lead reveal d4">Hands-on workshops, in person or online, that make a whole staff genuinely fluent with AI, so the time it saves goes where only a teacher can: to the student in front of them.</p>
+    <div class="dots reveal d5">&bull; &bull; &bull;</div>
+    <p class="tagline reveal d6">A present teacher is the one thing AI cannot replace.</p>
+    <p class="ledby reveal d6">Workshops led by <a href="/lucia.html">Luc&iacute;a Marmolejo Jim&eacute;nez, M.Ed.</a></p>
+  </section>
+
+  <section class="section">
+    <div class="inner scroll-reveal">
+      <div class="eyebrow">What Your Teachers Leave With</div>
+      <h2 class="h2">Ready by Monday, not inspired for someday.</h2>
+      <div class="prose">
+        <p>They do not leave inspired to try later. They leave able to practice effectively, with results they can see the same day. By the end, a teacher can take a real lesson and make it reach every student in the room, the confident one, the one who is struggling, the one learning in a second or third language, in minutes rather than evenings.</p>
+        <p>How fluent they become, and how fast, is up to them, and that is by design. The workshop lays the foundations and hands them an early win, and the empowerment of that first success is what carries them forward. Each time they come back to it they try something new, and that is where their own expertise begins to shine. The skill is theirs, growing in their hands.</p>
+        <p>AI will not replace the human moment. It protects it. Most of our time together is spent hands-on with the tools, because teachers have to feel it for themselves: that a real partnership between human and machine works, and works for the flourishing of people, students and teachers alike. The hours it gives back go where only a human can, sitting closer, noticing more, making a student feel worth investing in.</p>
+      </div>
+      <div class="pull">
+        <div class="rule">&bull; &bull; &bull;</div>
+        <blockquote>AI carries the paperwork. <span class="em">The teacher carries the child.</span></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="section panel">
+    <div class="inner scroll-reveal">
+      <div class="eyebrow">Who It Is For</div>
+      <h2 class="h2">Different rooms, different needs.</h2>
+      <div class="track">
+        <div class="track-label">The Whole Teaching Staff</div>
+        <p>The full foundation, taken together. Every teacher becomes fluent, from the eager early adopter to the one who has been quietly dreading this. No prior experience is assumed. The teacher who feels behind is exactly who the day is built for.</p>
+      </div>
+      <div class="track">
+        <div class="track-label">School Leadership</div>
+        <p>Running a school is its own kind of paperwork: board reports, staff and family communications, planning, policy. The same fluency that frees your teachers frees your leaders, at the same quality and a fraction of the hours, so attention goes back to people rather than documents.</p>
+      </div>
+      <div class="track">
+        <div class="track-label">Support Teams</div>
+        <p>Learning support, EAL, and counseling staff carry the students who need the most, and the documentation to match. This focuses on differentiation across the academic, social, and emotional, and on the support plans and reports that used to eat their evenings.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="inner scroll-reveal">
+      <div class="eyebrow">Where The Workshop Sits</div>
+      <h2 class="h2">Two roads, one destination.</h2>
+      <div class="prose">
+        <p>Behind all of it is the book, <a href="https://www.amazon.com/Differentiation-Trap-Framework-Belonging/dp/6250040811/" target="_blank" rel="noopener"><span class="it">The Differentiation Trap</span></a>, available to anyone who wants the thinking.</p>
+        <p>From there, two roads. The workshop is for teachers who want the skill in their own hands, and the satisfaction of building it themselves. <a href="https://educatorcompanion.com">Educator Companion</a> is for those who do not have the time, or the patience, for the hours at all: fluency without the effort, the result there from the start. Neither road is the lesser one. They suit different teachers, and different weeks.</p>
+      </div>
+      <div class="pull">
+        <div class="rule">&bull; &bull; &bull;</div>
+        <blockquote>Educator Companion is what years of practice look like. You can do the years, or you can <span class="em">let it carry them</span>.</blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="eyebrow scroll-reveal">Bring the Workshop to Your School</div>
+    <h2 class="scroll-reveal">We live in unprecedented times.</h2>
+    <p class="scroll-reveal">Right here, right now, as educators, we have the right tools to add genuine value to each one of our students. Let us add genuine value to your whole staff.</p>
+    <a class="btn scroll-reveal" href="mailto:lucia@educatorcompanion.com?subject=Professional%20Development%20Workshop%20Inquiry">Get in touch</a>
+  </section>
+
+  <footer class="footer">
+    <nav class="footer-nav">
+      <a href="https://educatorcompanion.com">Home</a>
+      <a href="/lucia.html">About the Creator</a>
+      <a href="https://www.amazon.com/Differentiation-Trap-Framework-Belonging/dp/6250040811/" target="_blank" rel="noopener">The Book</a>
+    </nav>
+    <div class="credit">Built on Claude by Anthropic <span class="sp">&#10022;</span> ORC Project House</div>
+  </footer>
+
+</div>
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  }, { threshold: 0.14 });
+  document.querySelectorAll('.scroll-reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
