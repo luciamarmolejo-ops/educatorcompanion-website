@@ -94,6 +94,25 @@
   .btn{display:inline-block;background:var(--navy);color:var(--paper);font-family:var(--sans);font-weight:500;letter-spacing:0.1em;text-transform:uppercase;font-size:0.78rem;padding:17px 38px;border-radius:2px;text-decoration:none;transition:background .25s,transform .25s;}
   .btn:hover{background:var(--gold-deep);transform:translateY(-1px);}
 
+  .cform{max-width:540px;margin:6px auto 0;text-align:left;}
+  .cform .intro{font-family:var(--sans);font-size:0.96rem;font-weight:300;color:var(--navy-soft);line-height:1.6;margin:0 auto 30px;text-align:center;max-width:46ch;}
+  .cform .row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .cform .field{margin-bottom:18px;}
+  .cform label{display:block;font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:8px;}
+  .cform label .opt{font-weight:300;letter-spacing:0.02em;text-transform:none;color:var(--navy-faint);}
+  .cform input[type=text],.cform input[type=email],.cform textarea{width:100%;box-sizing:border-box;font-family:var(--sans);font-size:0.98rem;font-weight:300;color:var(--navy);background:#fff;border:1px solid var(--paper-rule);border-radius:3px;padding:12px 14px;outline:none;transition:border-color .25s;}
+  .cform input::placeholder,.cform textarea::placeholder{color:var(--navy-faint);font-weight:300;}
+  .cform input:focus,.cform textarea:focus{border-color:var(--gold);}
+  .cform textarea{resize:vertical;min-height:84px;line-height:1.6;}
+  .cform fieldset{border:none;padding:0;margin:0 0 18px;}
+  .cform .choice{display:flex;align-items:center;gap:10px;font-family:var(--sans);font-size:0.95rem;font-weight:300;color:var(--navy);cursor:pointer;margin-bottom:9px;}
+  .cform .choice input{accent-color:var(--navy);width:16px;height:16px;}
+  .cform .inline{display:flex;gap:28px;flex-wrap:wrap;}
+  .cform .submit{margin-top:10px;text-align:center;}
+  .cform button.btn{border:none;cursor:pointer;}
+  .cform ._hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
+  @media(max-width:560px){.cform .row{grid-template-columns:1fr;}}
+
   .footer{text-align:center;padding:54px 24px 60px;border-top:1px solid var(--paper-rule);}
   .footer-nav{font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;margin-bottom:22px;display:flex;gap:26px;justify-content:center;flex-wrap:wrap;}
   .footer-nav a{color:var(--navy-soft);text-decoration:none;transition:color .25s;}
@@ -181,7 +200,42 @@
     <div class="eyebrow scroll-reveal">Bring the Workshop to Your School</div>
     <h2 class="scroll-reveal">We live in unprecedented times.</h2>
     <p class="scroll-reveal">Right here, right now, as educators, we have the right tools to add genuine value to each one of our students. Let us add genuine value to your whole staff.</p>
-    <a class="btn scroll-reveal" href="mailto:lucia@educatorcompanion.com?subject=Professional%20Development%20Workshop%20Inquiry">Get in touch</a>
+    <form class="cform scroll-reveal" action="https://formsubmit.co/cem@educatorcompanion.com" method="POST">
+      <p class="intro">Tell us a little about your school and we will be in touch within two business days.</p>
+
+      <input type="hidden" name="_subject" value="New workshop inquiry from the website">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_autoresponse" value="Thank you for reaching out about a professional development workshop. Your message has arrived safely and we will be in touch within two business days. Warmly, Educator Companion, ORC Project House. This is an automated confirmation, please do not reply to this address.">
+      <input type="hidden" name="_next" value="https://educatorcompanion.com/workshops.html">
+      <input type="text" name="_honey" class="_hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <div class="row">
+        <div class="field"><label>Your name</label><input type="text" name="Name" required placeholder="Your name"></div>
+        <div class="field"><label>Role</label><input type="text" name="Role" placeholder="e.g. PD Coordinator"></div>
+      </div>
+      <div class="field"><label>School or institution</label><input type="text" name="School" required placeholder="Your school's name"></div>
+      <div class="row">
+        <div class="field"><label>Country</label><input type="text" name="Country" required placeholder="Country"></div>
+        <div class="field"><label>Email</label><input type="email" name="email" required placeholder="you@school.org"></div>
+      </div>
+      <fieldset>
+        <label>Who would this be for?</label>
+        <label class="choice"><input type="checkbox" name="For" value="The whole teaching staff"> The whole teaching staff</label>
+        <label class="choice"><input type="checkbox" name="For" value="School leadership"> School leadership</label>
+        <label class="choice"><input type="checkbox" name="For" value="Support teams"> Support teams (EAL, learning support, counseling)</label>
+        <label class="choice"><input type="checkbox" name="For" value="Not sure yet"> Not sure yet</label>
+      </fieldset>
+      <fieldset>
+        <label>Format</label>
+        <div class="inline">
+          <label class="choice"><input type="radio" name="Format" value="In person"> In person</label>
+          <label class="choice"><input type="radio" name="Format" value="Online"> Online</label>
+          <label class="choice"><input type="radio" name="Format" value="Not sure yet"> Not sure yet</label>
+        </div>
+      </fieldset>
+      <div class="field"><label>Anything else? <span class="opt">(optional)</span></label><textarea name="Message" rows="3" placeholder="Timing, number of teachers, anything you would like us to know..."></textarea></div>
+      <div class="submit"><button type="submit" class="btn">Send inquiry</button></div>
+    </form>
   </section>
 
   <footer class="footer">
