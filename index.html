@@ -1105,6 +1105,7 @@
     /* Two teacher testimonials: stacked on phones, side by side and equal height from 720px */
     .scene-pair { display: grid; gap: 2rem; margin: 0 auto 4.5rem; }
     .scene-pair .works-scene { margin: 0; display: flex; flex-direction: column; justify-content: center; }
+    .scene-pair .works-scene + .works-scene { border-top: none; }
     @media (min-width: 720px) {
       .scene-pair { grid-template-columns: 1fr 1fr; width: min(960px, calc(100vw - 3rem)); margin-left: calc(50% - min(480px, 50vw - 1.5rem)); }
       .scene-pair .works-scene:first-child { grid-column: span 2; max-width: none; }
