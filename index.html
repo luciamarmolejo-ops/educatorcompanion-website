@@ -1102,6 +1102,13 @@
       font-variation-settings: "SOFT" 80, "opsz" 144;
     }
 
+    /* Two teacher testimonials: stacked on phones, side by side and equal height from 720px */
+    .scene-pair { display: grid; gap: 2rem; margin: 0 auto 4.5rem; }
+    .scene-pair .works-scene { margin: 0; display: flex; flex-direction: column; justify-content: center; }
+    @media (min-width: 720px) {
+      .scene-pair { grid-template-columns: 1fr 1fr; width: min(960px, calc(100vw - 3rem)); margin-left: calc(50% - min(480px, 50vw - 1.5rem)); }
+    }
+
     /* No-prompting manifesto moment */
     .no-prompting {
       max-width: 640px;
@@ -2376,15 +2383,26 @@
 
         <p>Our hope is that you walk into every lesson knowing each child has a special place in your room, and that you get to watch them grow and glow, academically, emotionally and socially.</p>
 
-        <figure class="works-scene">
-          <div class="scene-ornament" aria-hidden="true">✦</div>
-          <blockquote class="scene-quote">
-            "The material it generates, following my instructions, my observations, my goals and my content, is wonderful. Knowing you walk into the classroom with differentiation for every student brings satisfaction and relief... Teaching becomes, though it may sound contradictory, far more handcrafted and reflective, and therefore more enjoyable."
-          </blockquote>
-          <figcaption class="scene-cite">
-            Clara Retta, Spanish Language Acquisition Teacher
-          </figcaption>
-        </figure>
+        <div class="scene-pair">
+          <figure class="works-scene">
+            <div class="scene-ornament" aria-hidden="true">✦</div>
+            <blockquote class="scene-quote">
+              “The material it generates, following my instructions, my observations, my goals and my content, is wonderful. Knowing you walk into the classroom with differentiation for every student brings satisfaction and relief... Teaching becomes, though it may sound contradictory, far more handcrafted and reflective, and therefore more enjoyable.”
+            </blockquote>
+            <figcaption class="scene-cite">
+              Clara, Spanish Language Acquisition Teacher
+            </figcaption>
+          </figure>
+          <figure class="works-scene">
+            <div class="scene-ornament" aria-hidden="true">✦</div>
+            <blockquote class="scene-quote">
+              “My students were amazed at how thoughtful and caring my lessons were. The questions felt so meaningful. They enjoyed the sessions, and each of them knew they were made just for them.”
+            </blockquote>
+            <figcaption class="scene-cite">
+              Eda, EAL Teacher
+            </figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
