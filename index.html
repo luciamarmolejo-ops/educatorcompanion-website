@@ -1107,6 +1107,8 @@
     .scene-pair .works-scene { margin: 0; display: flex; flex-direction: column; justify-content: center; }
     @media (min-width: 720px) {
       .scene-pair { grid-template-columns: 1fr 1fr; width: min(960px, calc(100vw - 3rem)); margin-left: calc(50% - min(480px, 50vw - 1.5rem)); }
+      .scene-pair .works-scene:first-child { grid-column: span 2; max-width: none; }
+      .scene-pair .works-scene:first-child .scene-quote { max-width: var(--measure); margin: 0 auto; }
     }
 
     /* No-prompting manifesto moment */
@@ -2400,6 +2402,15 @@
             </blockquote>
             <figcaption class="scene-cite">
               Eda, EAL Teacher
+            </figcaption>
+          </figure>
+          <figure class="works-scene">
+            <div class="scene-ornament" aria-hidden="true">✦</div>
+            <blockquote class="scene-quote">
+              “The program lightened my workload and saved me time when differentiating instruction for students.”
+            </blockquote>
+            <figcaption class="scene-cite">
+              Secondary Teacher
             </figcaption>
           </figure>
         </div>
