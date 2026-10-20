@@ -1102,14 +1102,13 @@
       font-variation-settings: "SOFT" 80, "opsz" 144;
     }
 
-    /* Three teacher testimonials: stacked on phones; from 720px the first spans the full width, the other two side by side and equal height below */
+    /* Four teacher testimonials: stacked on phones; from 720px a 2 by 2 grid, each row's two cards equal height */
     .scene-pair { display: grid; gap: 2rem; margin: 0 auto 4.5rem; }
     .scene-pair .works-scene { margin: 0; display: flex; flex-direction: column; justify-content: center; }
     .scene-pair .works-scene + .works-scene { border-top: none; }
     @media (min-width: 720px) {
       .scene-pair { grid-template-columns: 1fr 1fr; width: min(960px, calc(100vw - 3rem)); margin-left: calc(50% - min(480px, 50vw - 1.5rem)); }
-      .scene-pair .works-scene:first-child { grid-column: span 2; max-width: none; }
-      .scene-pair .works-scene:first-child .scene-quote { max-width: var(--measure); margin: 0 auto; }
+      .scene-pair .works-scene:nth-child(2) { border-top: 1px solid var(--border); }
     }
 
     /* No-prompting manifesto moment */
@@ -2399,6 +2398,15 @@
           <figure class="works-scene">
             <div class="scene-ornament" aria-hidden="true">✦</div>
             <blockquote class="scene-quote">
+              “My experiences using Educator Companion™ were all positive! Teaching a brand new course, with students I didn't know well yet, was daunting at first. However, the app allowed me to fine tune my lessons with specific data related to the students actually sitting in my classes. It showed me where and how to differentiate for language needs, motivation issues, and the wide range of academic levels of the students.”
+            </blockquote>
+            <figcaption class="scene-cite">
+              Rebecca, School Librarian
+            </figcaption>
+          </figure>
+          <figure class="works-scene">
+            <div class="scene-ornament" aria-hidden="true">✦</div>
+            <blockquote class="scene-quote">
               “My students were amazed at how thoughtful and caring my lessons were. The questions felt so meaningful. They enjoyed the sessions, and each of them knew they were made just for them.”
             </blockquote>
             <figcaption class="scene-cite">
@@ -2681,10 +2689,11 @@
           <div class="credential">
             <div class="credential-label">Security Architecture</div>
             <ul class="credential-list">
-              <li>Row-level security on every API request</li>
+              <li>Row level security isolating each school's data</li>
               <li>Data encrypted in transit and at rest</li>
               <li>PostgreSQL infrastructure on Supabase</li>
-              <li>Personal data stored and processed in the European Union (Ireland)</li>
+              <li>Personal data stored in the European Union (Ireland)</li>
+              <li>AI processing through Anthropic's Claude API (United States), never used to train AI models</li>
               <li>Teacher verification required before any output reaches a student</li>
             </ul>
           </div>
@@ -2734,9 +2743,7 @@
 
         <p>That is why Educator Companion™ is licensed per teacher. One license walks beside one educator, and every student they reach, whether a small group of twelve or a full teaching load of two hundred.</p>
 
-        <p>A teacher in a small rural school and a teacher in a well-resourced international school pay the same, and receive the same care. No discount for being larger. No penalty for being smaller. Every child deserves the same chance to belong.</p>
-
-        <p>Schools joining us in this founding season become founding partners, with special terms and a direct line to the team building what they use. If you are a head of school, a learning support leader or a technology director ready to bring belonging into every classroom, we would love to talk.</p>
+        <p>To learn about licensing for your school, get in touch. If you are a head of school, a learning support leader or a technology director ready to bring belonging into every classroom, we would love to talk.</p>
 
         <div class="partnership-cta">
           <a href="#contact" class="btn btn-primary">Start the conversation <span class="arrow">&rarr;</span></a>
